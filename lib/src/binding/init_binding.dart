@@ -1,4 +1,4 @@
-import 'package:flutter_youtube_clone_app/controller/app_controller.dart';
+import 'package:flutter_youtube_clone_app/src/controller/app_controller.dart';
 import 'package:get/get.dart';
 
 class InitBinding implements Bindings {

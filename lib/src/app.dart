@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:flutter_youtube_clone_app/controller/app_controller.dart';
+import 'package:flutter_youtube_clone_app/src/controller/app_controller.dart';
+import 'package:flutter_youtube_clone_app/src/pages/explore.dart';
+import 'package:flutter_youtube_clone_app/src/pages/home.dart';
+import 'package:flutter_youtube_clone_app/src/pages/library.dart';
+import 'package:flutter_youtube_clone_app/src/pages/subscribe.dart';
 import 'package:get/get.dart';
 
 class App extends GetView<AppController> {
@@ -9,7 +13,27 @@ class App extends GetView<AppController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      // appBar: AppBar(),
+      body: Obx(() {
+        switch (RouteName.values[controller.currentIndex.value]) {
+          case RouteName.Home:
+            return Home();
+            break;
+          case RouteName.Explore:
+            return Explore();
+            break;
+          case RouteName.Add:
+            // bottomSheet
+            break;
+          case RouteName.Subscribe:
+            return Subscribe();
+            break;
+          case RouteName.Library:
+            return Library();
+            break;
+        }
+        return Container();
+      }),
       // currentIndex update를 하기 위해서 Obx 사용
       bottomNavigationBar: Obx(
         () => BottomNavigationBar(
